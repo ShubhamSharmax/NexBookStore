@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import bookRoute from "./route/book.route.js";
+import userRoute from "./route/user.route.js";
 
 const app = express();
 
@@ -26,6 +27,7 @@ try {
 
 //define Routes
 app.use("/books", bookRoute);
+app.use("/user", userRoute);
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
