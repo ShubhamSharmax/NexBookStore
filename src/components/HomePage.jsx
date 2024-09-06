@@ -1,7 +1,7 @@
 import React from 'react'
-import BooksSlider from './FeaturedBooks';
 import banner from '../assets/banner.png';
 import { NavLink } from 'react-router-dom';
+import FeaturedBooks from './FeaturedBooks';
 
 const HomePage = () => {
   return (
@@ -16,7 +16,7 @@ const HomePage = () => {
             <img src={banner} alt="banner" className='w-[80%]'/>
         </div>
     </div>
-    <BooksSlider />
+    <FeaturedBooks />
     </>
   )
 }
