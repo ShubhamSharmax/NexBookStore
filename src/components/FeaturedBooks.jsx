@@ -63,9 +63,7 @@ const FeaturedBooks = () => {
       <div className="slider-container w-[95%] m-auto my-5">
         <Slider {...settings}>
           {books.map((e) => (
-            <div className='ml-14'>
-              <BookCard key={e.id} book={e} />
-            </div>
+            <div className='ml-14' key={e.id}><BookCard book={e} /></div>
           ))}
         </Slider>
       </div>
