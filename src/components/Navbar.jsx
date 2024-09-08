@@ -3,10 +3,28 @@ import { NavLink } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import Modal from './Modal';
 import Login from './Login';
+import UserProfile from './UserProfile';
 
 const Navbar = () => {
     const [isLoginOpen, setIsLoginOpen] = useState(false);
+    const [isProfileOpen, setIsProfileOpen] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const user = JSON.parse(localStorage.getItem('User'));
+    console.log('navbar',user)
 
+    useEffect(() => {
+        if (user && user.isUserLoggedIn) {
+            setIsLoggedIn(true);
+        } else {
+            setIsLoggedIn(false);
+        }
+    }, [isLoginOpen]);
+
+    const handleLogOut = () => {
+        localStorage.removeItem('User');
+        setIsProfileOpen(false);
+        setIsLoggedIn(false);
+    };
     return (
         <div className='w-screen p-2 px-10 bg-gray-500 flex justify-between items-center fixed top-0 z-10'>
             <div className="nav-left">
@@ -29,11 +47,15 @@ const Navbar = () => {
                             <FaSearch />
                         </button>
                     </li>
-                    <button className='bg-black text-white p-2 px-4 rounded-xl' onClick={() => setIsLoginOpen(true)}>Login</button>
+                    {isLoggedIn && <button className='bg-black text-white p-2 px-4 rounded-xl'  onClick={() => setIsProfileOpen(true)}>Profile</button>}
+                    {!isLoggedIn && <button className='bg-black text-white p-2 px-4 rounded-xl' onClick={() => setIsLoginOpen(true)}>Login</button>}
                 </ul>
             </div>
             <Modal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)}>
-                <Login setIsLoginOpen={setIsLoginOpen}/>
+                <Login setIsLoginOpen={setIsLoginOpen} />
+            </Modal>
+            <Modal isOpen={isProfileOpen} onClose={() => setIsProfileOpen(false)}>
+                <UserProfile user={user} handleLogOut={handleLogOut} />
             </Modal>
         </div>
     );
