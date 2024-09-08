@@ -4,6 +4,7 @@ import HomePage from './components/HomePage';
 import BooksPage from './components/BooksPage';
 import About from './components/About';
 import Footer from './components/Footer';
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/books" element={<BooksPage />} />
           <Route path="/about" element={<About />} />
         </Routes>
+        <Toaster />
       </main>
       <Footer />
     </>
