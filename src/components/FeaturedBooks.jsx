@@ -42,7 +42,7 @@ const FeaturedBooks = () => {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -60,18 +60,18 @@ const FeaturedBooks = () => {
   };
 
   return (
-    <div className='w-[98vw] m-auto my-5 p-5'>
-      <h1 className='font-bold text-xl pl-8'>Featured Books</h1>
-      <p className='pl-8 my-2'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem sint laboriosam, minus odit, dolorum repudiandae est quibusdam omnis beatae asperiores, ipsum soluta tempora deleniti sequi quod recusandae aperiam. Similique ipsa dolore veniam minima ipsam.</p>
+    <div className='w-[98vw] m-auto my-5 p-5 max-md:my-2 max-md:p-0'>
+      <h1 className='font-bold text-xl pl-8 max-md:pl-5'>Featured Books</h1>
+      <p className='pl-8 my-2 max-md:pl-6 max-md:line-clamp-2'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem sint laboriosam, minus odit, dolorum repudiandae est quibusdam omnis beatae asperiores, ipsum soluta tempora deleniti sequi quod recusandae aperiam. Similique ipsa dolore veniam minima ipsam.</p>
       {isDataLoaded ? (
-      <div className="slider-container w-[95%] m-auto my-5">
+      <div className="slider-container w-[95%] m-auto my-5 max-md:w-[85%] max-md:mb-10">
         <Slider {...settings}>
           {books.map((e, index) => (
-            <div key={index} className='ml-14'><BookCard book={e} /></div>
+            <div key={index} className='ml-14 max-md:ml-0'><BookCard book={e} /></div>
           ))}
         </Slider>
       </div>) :
-        <div className="flex h-[70vh] justify-center items-center">
+        <div className="flex h-[70vh] justify-center items-center max-sm:h-[30vh]">
           <h2 className="text-xl font-bold text-center animate-pulse">Loading...</h2>
         </div>
       }

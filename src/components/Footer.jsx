@@ -7,23 +7,23 @@ import instagramIcon from '../assets/socialIcons/instagram.svg';
 const Footer = () => {
   return (
     <footer>
-      <div className='Footer bottom-0 w-full h-[20vh] text-center bg-slate-200 p-2 flex items-center font-modern text-slate-900 cursor-default'>
-        <div className='w-1/2'>
-          <NavLink to="/" className="text-3xl font-bold">NexBookStore</NavLink>
-          <h1 className="text-sm text-slate-500">&#169;2024 All rights reserved.</h1>
-          <h1 className="text-lg text-slate-700 font-semibold">Created By : Shubham Sharma</h1>
+      <div className='Footer bottom-0 w-full min-h-[20vh] text-center bg-slate-200 p-2 flex items-center font-modern text-slate-900 cursor-default max-md:flex-col max-md:gap-5 '>
+        <div className='w-1/2 max-md:w-4/5 max-md:mt-5'>
+          <NavLink to="/" className="text-3xl font-bold max-md:text-2xl max-sm:text-xl">NexBookStore</NavLink>
+          <h1 className="text-sm text-slate-500 max-sm:text-xs">&#169;2024 All rights reserved.</h1>
+          <h1 className="text-lg text-slate-700 font-semibold  max-sm:text-sm">Created By : Shubham Sharma</h1>
         </div>
-        <div className="w-1/2">
-          <h1 className="text-lg font-semibold mb-2">- Connect with us -</h1>
+        <div className="w-1/2 max-md:w-4/5 max-md:mb-5">
+          <h1 className="text-lg font-semibold mb-2 max-sm:text-base">- Connect with us -</h1>
           <div className="flex justify-center items-center gap-8">
             <a href="https://github.com/ShubhamSharmax">
-              <img src={githubIcon} alt="GitHub" className="h-12 hover:scale-125 transition-transform" />
+              <img src={githubIcon} alt="GitHub" className="h-12 hover:scale-125 transition-transform max-sm:h-10" />
             </a>
             <a href="https://www.linkedin.com/in/shubham-sharma02/">
-              <img src={linkedinIcon} alt="LinkedIn" className="h-12 hover:scale-125 transition-transform" />
+              <img src={linkedinIcon} alt="LinkedIn" className="h-12 hover:scale-125 transition-transform max-sm:h-10" />
             </a>
             <a href="https://www.instagram.com/shubham.sharma02/">
-              <img src={instagramIcon} alt="Instagram" className="h-12 hover:scale-125 transition-transform" />
+              <img src={instagramIcon} alt="Instagram" className="h-12 hover:scale-125 transition-transform max-sm:h-10" />
             </a>
           </div>
         </div>

@@ -67,32 +67,32 @@ const Login = ({ setIsLoginOpen }) => {
         {/* Log In Form */}
         {!isSignUpOpen && (
             <div className='w-[90%] m-auto'>
-                <h2 className="text-3xl font-bold my-4 text-center text-slate-800">Login</h2>
+                <h2 className="text-3xl font-bold my-4 text-center text-slate-800 max-md:text-2xl">Login</h2>
                 <form onSubmit={handleLoginSubmit(onLoginSubmit)} className='mx-2'>
-                    <label className="block mb-1 mx-4 text-lg font-semibold">Email :</label>
+                    <label className="block mb-1 mx-4 text-lg font-semibold max-md:text-base max-sm:text-sm max-md:mx-2 max-sm:mx-1">Email :</label>
                     <input
                         type="email"
                         placeholder='Enter Email'
-                        className="border p-2 px-4 w-full mb-1  rounded-xl text-slate-800 bg-slate-100 outline-none"
+                        className="border p-2 px-4 w-full mb-1  rounded-xl text-slate-800 bg-slate-100 outline-none max-sm:text-sm"
                         {...loginRegister('email', { required: 'Email is required' })}
                     />
-                    {loginErrors.email && <p className="text-red-500 mx-4 text-sm opacity-85">{loginErrors.email.message}</p>}
+                    {loginErrors.email && <p className="text-red-500 mx-4 text-sm opacity-85 max-sm:text-xs">{loginErrors.email.message}</p>}
 
-                    <label className="block mt-4 mb-1 mx-4 text-lg font-semibold">Password :</label>
+                    <label className="block mt-4 mb-1 mx-4 text-lg font-semibold max-md:text-base max-sm:text-sm max-md:mx-2 max-sm:mx-1">Password :</label>
                     <input
                         type="password"
                         placeholder='Enter Password'
-                        className="border p-2 px-4 w-full mb-1  rounded-xl  text-slate-800 bg-slate-100 outline-none"
+                        className="border p-2 px-4 w-full mb-1  rounded-xl  text-slate-800 bg-slate-100 outline-none max-sm:text-sm"
                         {...loginRegister('password', { required: 'Password is required' })}
                     />
-                    {loginErrors.password && <p className="text-red-500 mx-4 text-sm opacity-85">{loginErrors.password.message}</p>}
+                    {loginErrors.password && <p className="text-red-500 mx-4 text-sm opacity-85 max-sm:text-xs">{loginErrors.password.message}</p>}
 
                     <div className='text-center mx-4'>
-                        <button disabled={loginIsSubmitting} type="submit" className={`bg-slate-800 text-white font-semibold text-lg mt-4 p-2 px-5 rounded-xl ${loginIsSubmitting ? 'opacity-50' : 'hover:bg-slate-900'}`}>{loginIsSubmitting ? 'Logging in ...' : 'Login'}</button>
+                        <button disabled={loginIsSubmitting} type="submit" className={`bg-slate-800 text-white font-semibold text-lg mt-4 p-2 px-5 rounded-xl max-sm:text-base ${loginIsSubmitting ? 'opacity-50' : 'hover:bg-slate-900'}`}>{loginIsSubmitting ? 'Logging in ...' : 'Login'}</button>
                     </div>
                 </form>
-                <div className='text-end text-sm mx-4 mt-4'>
-                    <span>Not registered? </span><button onClick={() => setIsSignUpOpen(true)} className='underline text-blue-700 hover:text-blue-900 font-semibold text-lg'>Signup</button>
+                <div className='text-end text-sm mx-4 mt-4 max-sm:text-xs'>
+                    <span>Not registered? </span><button onClick={() => setIsSignUpOpen(true)} className='underline text-blue-700 hover:text-blue-900 font-semibold text-lg max-sm:text-base'>Signup</button>
                 </div>
             </div>
         )}
@@ -100,58 +100,58 @@ const Login = ({ setIsLoginOpen }) => {
         {/* SignUp Form  */}
         {isSignUpOpen && (
             <div className='w-[90%] m-auto'>
-                <h2 className="text-3xl font-bold my-4 text-center text-slate-800">Sign up</h2>
+                <h2 className="text-3xl font-bold my-4 text-center text-slate-800 max-md:text-2xl">Sign up</h2>
                 <form onSubmit={handleSignUpSubmit(onSignUpSubmit)}>
-                    <label className="block mb-1 mx-4 text-lg font-semibold">Email:</label>
+                    <label className="block mb-1 mx-4 text-lg font-semibold max-md:text-base max-sm:text-sm max-md:mx-2 max-sm:mx-1">Email:</label>
                     <input
                         type="email"
                         placeholder='Enter Email'
-                        className="border p-2 px-4 w-full mb-1  rounded-xl text-slate-800 bg-slate-100 outline-none"
+                        className="border p-2 px-4 w-full mb-1  rounded-xl text-slate-800 bg-slate-100 outline-none max-sm:text-sm"
                         {...signUpRegister('email', {
                             required: 'Email is required'
                         })}
                     />
-                    {signUpErrors.email && <span className="text-red-500 mx-4 text-sm opacity-85">{signUpErrors.email.message}</span>}
+                    {signUpErrors.email && <span className="text-red-500 mx-4 text-sm opacity-85 max-sm:text-xs">{signUpErrors.email.message}</span>}
 
-                    <label className="block mb-1 mx-4 text-lg font-semibold">Name:</label>
+                    <label className="block mb-1 mx-4 text-lg font-semibold max-md:text-base max-sm:text-sm max-md:mx-2 max-sm:mx-1">Name:</label>
                     <input
                         type="text"
                         placeholder='Enter Full Name'
-                        className="border p-2 px-4 w-full mb-1  rounded-xl text-slate-800 bg-slate-100 outline-none"
+                        className="border p-2 px-4 w-full mb-1  rounded-xl text-slate-800 bg-slate-100 outline-none max-sm:text-sm"
                         {...signUpRegister('name', { required: 'Name is required' })}
                     />
-                    {signUpErrors.name && <span className="text-red-500 mx-4 text-sm opacity-85">{signUpErrors.name.message}</span>}
+                    {signUpErrors.name && <span className="text-red-500 mx-4 text-sm opacity-85 max-sm:text-xs">{signUpErrors.name.message}</span>}
 
-                    <label className="block mb-1 mx-4 text-lg font-semibold">Password:</label>
+                    <label className="block mb-1 mx-4 text-lg font-semibold max-md:text-base max-sm:text-sm max-md:mx-2 max-sm:mx-1">Password:</label>
                     <input
                         type="password"
                         placeholder='Enter Password'
-                        className="border p-2 px-4 w-full mb-1  rounded-xl text-slate-800 bg-slate-100 outline-none"
+                        className="border p-2 px-4 w-full mb-1  rounded-xl text-slate-800 bg-slate-100 outline-none max-sm:text-sm"
                         {...signUpRegister('password', {
                             required: 'Password is required',
                             minLength: { value: 6, message: 'Password must be at least 6 characters' },
                         })}
                     />
-                    {signUpErrors.password && <span className="text-red-500 mx-4 text-sm opacity-85">{signUpErrors.password.message}</span>}
+                    {signUpErrors.password && <span className="text-red-500 mx-4 text-sm opacity-85 max-sm:text-xs">{signUpErrors.password.message}</span>}
 
-                    <label className="block mb-1 mx-4 text-lg font-semibold">Confirm Password:</label>
+                    <label className="block mb-1 mx-4 text-lg font-semibold max-md:text-base max-sm:text-sm max-md:mx-2 max-sm:mx-1">Confirm Password:</label>
                     <input
                         type="password"
                         placeholder='Re-Enter Password'
-                        className="border p-2 px-4 w-full mb-1  rounded-xl text-slate-800 bg-slate-100 outline-none"
+                        className="border p-2 px-4 w-full mb-1  rounded-xl text-slate-800 bg-slate-100 outline-none max-sm:text-sm"
                         {...signUpRegister('confirmPassword', {
                             required: 'Confirm Password is required',
                             validate: (value) => value === password || 'Passwords do not match',
                         })}
                     />
-                    {signUpErrors.confirmPassword && (<span className="text-red-500 mx-4 text-sm opacity-85">{signUpErrors.confirmPassword.message}</span>)}
+                    {signUpErrors.confirmPassword && (<span className="text-red-500 mx-4 text-sm opacity-85 max-sm:text-xs">{signUpErrors.confirmPassword.message}</span>)}
 
                     <div className='text-center mx-4'>
-                        <button disabled={signupIsSubmitting} type="submit" className={`bg-slate-800 text-white font-semibold text-lg mt-4 p-2 px-5 rounded-xl ${signupIsSubmitting ? 'opacity-50' : 'hover:bg-slate-900'}`}>{signupIsSubmitting ? 'Signing Up ...' : 'Sign Up'}</button>
+                        <button disabled={signupIsSubmitting} type="submit" className={`bg-slate-800 text-white font-semibold text-lg mt-4 p-2 px-5 rounded-xl max-sm:text-base ${signupIsSubmitting ? 'opacity-50' : 'hover:bg-slate-900'}`}>{signupIsSubmitting ? 'Signing Up ...' : 'Sign Up'}</button>
                     </div>
                 </form>
-                <div className='text-end text-sm mx-4 mt-4'>
-                    <span>Already registered? </span><button onClick={() => setIsSignUpOpen(false)} className='underline text-blue-700 hover:text-blue-900 font-semibold text-lg'>Login</button>
+                <div className='text-end text-sm mx-4 mt-4 max-sm:text-xs'>
+                    <span>Already registered? </span><button onClick={() => setIsSignUpOpen(false)} className='underline text-blue-700 hover:text-blue-900 font-semibold text-lg max-sm:text-base'>Login</button>
                 </div>
             </div>
         )}
