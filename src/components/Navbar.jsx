@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import { RxCross2 } from 'react-icons/rx';
 import { HiBars2 } from 'react-icons/hi2';
@@ -14,6 +14,8 @@ const Navbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const user = JSON.parse(localStorage.getItem('User'));
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (user && user.isUserLoggedIn) {
@@ -29,6 +31,12 @@ const Navbar = () => {
         setIsLoggedIn(false);
         toast.success('Logged out successfully');
     };
+
+    const handleSearch = () => {
+        if (searchQuery.trim()) {
+          navigate(`/search/${searchQuery}`);
+        }
+      };
     return (
         <>
             <div className='w-screen p-4 px-14 bg-slate-200 flex justify-between items-center fixed top-0 z-20 shadow-lg font-modern max-md:px-10 max-sm:px-4 max-md:p-3 max-sm:p-2'>
@@ -47,8 +55,8 @@ const Navbar = () => {
                             `text-slate-700 transition-transform duration-300 ease-in-out ${isActive ? 'font-bold text-xl transform scale-110' : 'hover:scale-105'}`
                         }>About</NavLink>
                         <li className="relative flex items-center">
-                            <input type="search" placeholder="Search" className="p-1 pl-4 pr-7 bg-slate-300 focus:outline-none rounded-xl active:bg-slate-200" />
-                            <button className="absolute right-1 top-1/2 transform -translate-y-1/2  px-1 rounded-r-md text-slate-600 hover:text-slate-800">
+                            <input type="search" placeholder="Search" value={searchQuery}  onChange={(e) => setSearchQuery(e.target.value)} className="p-1 pl-4 pr-7 bg-slate-300 focus:outline-none rounded-xl active:bg-slate-200" />
+                            <button onClick={handleSearch} className="absolute right-1 top-1/2 transform -translate-y-1/2  px-1 rounded-r-md text-slate-600 hover:text-slate-800">
                                 <FaSearch />
                             </button>
                         </li>
@@ -85,8 +93,8 @@ const Navbar = () => {
                         `text-slate-700 pl-4  transition-transform duration-300 ease-in-out ${isActive ? 'font-bold scale-105 pl-5' : ''}`
                     }>About</NavLink><hr className='bg-slate-300 h-[2px]'/>
                     <li className="relative flex items-center">
-                        <input type="search" placeholder="Search" className=" w-[100%] p-2 pl-4 pr-10 bg-slate-300 focus:outline-none rounded-xl active:bg-slate-200" />
-                        <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-600">
+                        <input type="search" placeholder="Search" value={searchQuery}  onChange={(e) => setSearchQuery(e.target.value)} className=" w-[100%] p-2 pl-4 pr-10 bg-slate-300 focus:outline-none rounded-xl active:bg-slate-200" />
+                        <button onClick={handleSearch} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-600">
                             <FaSearch />
                         </button>
                     </li>
